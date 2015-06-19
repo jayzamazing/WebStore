@@ -1,33 +1,26 @@
 package com.adrianjaylopez.webstore.dao;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * This class stores image information from the database. This information is used to find the path for the image,the
  * item that the image corresponds to, and the order that the images should be displayed in.
  * @author Adrian J Lopez
  */
-public class Image implements Serializable{
+@Entity
+public class Image {
 
     //declare variables
+    @Id @GeneratedValue
     private String itemNumber, fileName;
     private int viewOrder;
 
     /**
-     * Constructor to create image object.
-     * @param itemNumber Alphanumerical number for the item
-     * @param viewOder Order in which the images should be displayed
+     * no-arg constructor
      */
-    public Image(String itemNumber, int viewOder){
-        this.itemNumber = itemNumber;
-        this.viewOrder = viewOder;
-        setFileName();
-    }
-
-    /**
-     * Private no-arg contructor for hibernate
-     */
-    private Image(){}
+    public Image(){}
 
     /**
      * Gets the order number for the image
@@ -70,10 +63,9 @@ public class Image implements Serializable{
     }
 
     /**
-     * Sets the file name of this image using the item number and the view order. Method is private so app sets name to
-     * avoid duplicate names
+     * Sets the file name of this image using the item number and the view order.
      */
-    private void setFileName() {
+    public void setFileName() {
         this.fileName = itemNumber + "-" + viewOrder;
     }
 
