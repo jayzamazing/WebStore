@@ -1,5 +1,8 @@
 package com.adrianjaylopez.webstore.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
@@ -13,7 +16,14 @@ public class Item {
     //declare variables
     private String itemNumber, description;
     private BigDecimal price;
+
+    @Autowired//App context injects instance of
     private HashMap<Integer, Image> images;
+
+    /**
+     * no-arg constructor
+     */
+    public Item(){}
 
     /**
      * Gets the price of the item
