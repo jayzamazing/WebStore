@@ -14,6 +14,8 @@ public class Image {
 
     //declare variables
     @Id @GeneratedValue
+    private Long id;
+
     private String itemNumber, fileName;
     private int viewOrder;
 
