@@ -6,7 +6,9 @@ import javax.persistence.Id;
 
 /**
  * This class represents the categories that the item belongs to.
- * @author Adrian J Lopez
+ * @Author Adrian Lopez
+ * @sinve <pre>Jun 21, 2015</pre>
+ * @version 1.0
  */
 @Entity
 public class Categories {

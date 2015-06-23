@@ -10,7 +10,10 @@ import java.util.HashMap;
  *This class stores item information from the database. The information includes the item number, and description, its
  * price, along with an associated collection of images.
  * @author Adrian J Lopez
+ * @since <pre>Jun 16, 2015</pre>
+ * @version 1.3
  */
+
 public class Item {
 
     //declare variables
