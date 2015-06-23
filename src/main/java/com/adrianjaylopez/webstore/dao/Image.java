@@ -1,13 +1,20 @@
 package com.adrianjaylopez.webstore.dao;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
+ * Image Class
+ *
  * This class stores image information from the database. This information is used to find the path for the image,the
  * item that the image corresponds to, and the order that the images should be displayed in.
  * @author Adrian J Lopez
+ * @since <pre>Jun 16, 2015</pre>
+ * @version 1.3
  */
 @Entity
 public class Image {
@@ -18,6 +25,7 @@ public class Image {
 
     private String itemNumber, fileName;
     private int viewOrder;
+    private MultipartFile file;
 
     /**
      * no-arg constructor
@@ -67,8 +75,26 @@ public class Image {
     /**
      * Sets the file name of this image using the item number and the view order.
      */
-    public void setFileName() {
-        this.fileName = itemNumber + "-" + viewOrder;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    /**
+     * Gets the picture file. Not persisted.
+     * @return file
+     */
+    @Transient
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * Sets the picture file. Not persisted
+     * @param file picture
+     */
+    @Transient
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
     /**

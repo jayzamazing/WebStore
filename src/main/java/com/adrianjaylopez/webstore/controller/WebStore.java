@@ -5,7 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author Adrian J Lopez
+ * This class is basically going to act like the dispatcher servlet once everything is setup.
+ *
+ * @Author Adrian Lopez
+ * @sinve <pre>Jun 14, 2015</pre>
+ * @version 1.0
  */
 
 @Controller
