@@ -7,8 +7,8 @@ import org.junit.After;
 /** 
 * UploadController Tester. 
 * 
-* @author <Authors name> 
-* @since <pre>Jun 22, 2015</pre> 
+* @author Adrian J Lopez
+* @since <pre>6/22/15</pre>
 * @version 1.0 
 */ 
 public class UploadControllerTest { 
