@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * WebStoreApplication tester
- * @Author Adrian Lopez
- * @sinve <pre>Jun 13, 2015</pre>
+ * @Author Adrian J Lopez
+ * @since <pre>6/13/15</pre>
  * @version 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)

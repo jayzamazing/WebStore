@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 /**
  * Image Class
@@ -13,7 +14,7 @@ import javax.persistence.Transient;
  * This class stores image information from the database. This information is used to find the path for the image,the
  * item that the image corresponds to, and the order that the images should be displayed in.
  * @author Adrian J Lopez
- * @since <pre>Jun 16, 2015</pre>
+ * @since <pre>6/6/15</pre>
  * @version 1.3
  */
 @Entity
@@ -23,7 +24,9 @@ public class Image {
     @Id @GeneratedValue
     private Long id;
 
-    private String itemNumber, fileName;
+    @NotNull
+    private String itemNumber;
+    private String fileName;
     private int viewOrder;
     private MultipartFile file;
 
@@ -98,7 +101,7 @@ public class Image {
     }
 
     /**
-     * toString method to to show the item number, order number, and file path for the image
+     * toString method to to show the item number, order number, file path for the image, and name of file
      * @return item number, order number, and file path
      */
     @Override

@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * This is the entry point for Spring Boot. 
- * @Author Adrian Lopez
- * @sinve <pre>Jun 13, 2015</pre>
+ * @Author Adrian J Lopez
+ * @since <pre>6/13/15</pre>
  * @version 1.0
  */
 @SpringBootApplication

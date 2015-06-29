@@ -1,5 +1,7 @@
 package com.adrianjaylopez.webstore.controller;
 
+import com.adrianjaylopez.webstore.service.UploadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,12 +12,15 @@ import java.io.*;
 
 /**
  * This class is going to deal with uploading the images that will be used for the items pictures.
- * @Author Adrian Lopez
- * @since <pre>Jun 22, 2015</pre>
- * @version 1.0
+ * @Author Adrian J Lopez
+ * @since <pre>6/22/15</pre>
+ * @version 1.1
  */
 @Controller
 public class UploadController {
+
+    @Autowired
+    UploadService uploadService;
 
     /**
      * This method deals with uploading pictures to be stored in file system
@@ -28,16 +33,7 @@ public class UploadController {
     @RequestMapping(value="/upload", method= RequestMethod.POST)
     public String fileUpload(@RequestParam("name") String name, @RequestParam("itemNumber") String item,
                              @RequestParam("file") MultipartFile file){
-        if(!file.isEmpty()){
-            try {
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(name)));
-                stream.write(file.getBytes());
-                stream.close();
-            } catch (IOException ex) {
-                return "Failed to upload due to: " + ex.getMessage();
-            }
 
-        }
-        return "Failed to upload file";
+        return uploadService.imageUpload(name, file);
     }
 }
