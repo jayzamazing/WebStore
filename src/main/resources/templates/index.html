@@ -2,33 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>WebStore</title>
     <meta name="author" content="Adrian J Lopez"/>
     <meta name="version" content="1.1"/>
     <meta name="last modified" content="Jun 15, 2015"/>
     <meta name="since" content="Jun 14, 2015"/>
-    <meta name="viewport" content="width=device>-width, initial-scale=1, maximum-scale=1"/>
-    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="../public/bootstrap/dist/css/bootstrap.min.css"
+          th:href="@{/bootstrap/dist/css/bootstrap.css}"/>
 </head>
 <body>
-    <header>
-        <div class="col-sm-8">
-            <h1>WebStore</h1>
-        </div>
-        <div class="col-sm-4">
-            <form class="form-signin">
-                <input type="text" placeholder="User Name" size="7"/>
-                <input type="password" placeholder="Password" size="7"/>
-                <button type="submit">Sign in</button>
-            </form>
-            <nav></nav>
-        </div>
-    </header>
-    <aside><nav></nav></aside>
-    <main></main>
-    <footer></footer>
-    <script type="text/javascript" src="/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+<header>
+    <div class="alert">
+        <h1>WebStore</h1>
+    </div>
+    <div class="glyphicon glyphicon-search">
+
+    </div>
+</header>
+<nav class="nav navbar-default">
+
+    <form class="navbar-right navbar-form">
+        <input type="text" placeholder="User Name" size="7"/>
+        <input type="password" placeholder="Password" size="7"/>
+        <button type="submit">Sign in</button>
+    </form>
+</nav>
+<aside>
+    <nav></nav>
+</aside>
+<main></main>
+<footer></footer>
+<script type="text/javascript" src="../public/jquery/dist/jquery.min.js"
+        th:src="@{/jquery/dist/jquery.min.js}"></script>
+<script type="text/javascript" src="../public/angular/angular.min.js"
+        th:src="@{/angular/angular.min.js}"></script>
+<script type="text/javascript" src="../public/bootstrap/dist/js/bootstrap.min.js"
+        th:src="@{/bootstrap/dist/js/bootstrap.min.js}"></script>
 </body>
 </html>
