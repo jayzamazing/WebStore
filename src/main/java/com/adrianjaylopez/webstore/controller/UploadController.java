@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
-
 /**
  * This class is going to deal with uploading the images that will be used for the items pictures.
- * @Author Adrian J Lopez
+ * @author Adrian J Lopez
  * @since <pre>6/22/15</pre>
  * @version 1.1
  */

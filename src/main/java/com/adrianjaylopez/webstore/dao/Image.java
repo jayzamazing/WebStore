@@ -1,12 +1,13 @@
 package com.adrianjaylopez.webstore.dao;
 
 import org.springframework.web.multipart.MultipartFile;
-
+/*
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+ */
 
 /**
  * Image Class
@@ -17,14 +18,14 @@ import javax.validation.constraints.NotNull;
  * @since <pre>6/6/15</pre>
  * @version 1.3
  */
-@Entity
+//@Entity
 public class Image {
 
     //declare variables
-    @Id @GeneratedValue
+    //@Id @GeneratedValue
     private Long id;
 
-    @NotNull
+    //@NotNull
     private String itemNumber;
     private String fileName;
     private int viewOrder;
@@ -86,7 +87,7 @@ public class Image {
      * Gets the picture file. Not persisted.
      * @return file
      */
-    @Transient
+    //@Transient
     public MultipartFile getFile() {
         return file;
     }
@@ -95,7 +96,7 @@ public class Image {
      * Sets the picture file. Not persisted
      * @param file picture
      */
-    @Transient
+    //@Transient
     public void setFile(MultipartFile file) {
         this.file = file;
     }

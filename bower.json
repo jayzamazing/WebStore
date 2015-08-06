@@ -1,0 +1,31 @@
+{
+  "name": "WebStore",
+  "version": "0.0.6",
+  "homepage": "https://github.com/jayzamazing/WebStore",
+  "authors": [
+    "jayzamazing <adrianjaylopez@gmail.com>"
+  ],
+  "description": "A spring project that will emulate a webstore in later phases for my learning.",
+  "main": "WebStoreApplication.java",
+  "keywords": [
+    "Java",
+    "Spring",
+    "Angular",
+    "jQuery",
+    "Javascript",
+    "Bower"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "/src/main/resources/public",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.3"
+  }
+}

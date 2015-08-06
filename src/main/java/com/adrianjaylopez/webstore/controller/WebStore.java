@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * This class is basically going to act like the dispatcher servlet once everything is setup.
  *
- * @Author Adrian J Lopez
+ * @author Adrian J Lopez
  * @since <pre>6/14/15</pre>
  * @version 1.0
  */

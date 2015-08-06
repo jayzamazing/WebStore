@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * @version 1.0
- * @Author Adrian J Lopez
+ * @author Adrian J Lopez
  * @since <pre>6/26/15</pre>
  */
 @Service
