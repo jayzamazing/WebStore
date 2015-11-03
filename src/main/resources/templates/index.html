@@ -13,7 +13,7 @@
           th:href="@{/bootstrap/dist/css/bootstrap-theme.min.css}"/>
     <link rel="stylesheet" href="../static/css/site.css" th:href="@{/css/site.css}"/>
 </head>
-<body ng-app="loadContent">
+<body ng-app="pageView">
 <header>
     <!--future place for javascript code to load additional nav bar items -->
 
@@ -30,7 +30,7 @@
                 <a class="navbar-brand" href="#">WebStore</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--future place for javascript code to load nav bar items -->
+                <!-- add nav -->
                 <ul class="nav navbar-nav">
                   <li></li>
                 </ul>
@@ -79,14 +79,7 @@
 
     </nav>
 </aside>
-<main class="col-lg-8 col-md-7 container col-lg-offset-2 col-md-offset-2" >
-
-    <!--future place for javascript code to load content-->
-    <!--create angular module for this-->
-    <form name="itemInfo" ng-show="IsAdmin()">
-        <input type="search" placeholder="Item to find" ng-model="itemInfoSearch">
-    </form>
-</main>
+<div ng-view></div>
 <footer >
     <!--future place for javascript code to load the company information links-->
 </footer>
@@ -94,9 +87,11 @@
         th:src="@{/jquery/dist/jquery.min.js}"></script>
 <script type="text/javascript" src="../public/angular/angular.min.js"
         th:src="@{/angular/angular.min.js}"></script>
+<script type="text/javascript" src="../public/angular-route/angular-route.min.js"
+        th:src="@{/angular-route/angular-route.min.js}"></script>
 <script type="text/javascript" src="../public/bootstrap/dist/js/bootstrap.min.js"
         th:src="@{/bootstrap/dist/js/bootstrap.min.js}"></script>
-<script type="text/javascript" src="../static/js/script.js"
+<script type="text/javascript" src="../static/js/app.js"
         th:src="@{/js/loadcontent.js}"></script>
 </body>
 </html>
