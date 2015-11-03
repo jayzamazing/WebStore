@@ -19,12 +19,4 @@
             })
             .otherwise({redirectTo:"/"});
     });
-
-
-    storeApp.controller('UserInfo', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
-        var res = $http.get('http://localhost:8080/userInfo');
-        res.success(function(data) {
-            $scope.navItems = $sce.trustAsHtml(data);
-        });
-    }]);
 })();

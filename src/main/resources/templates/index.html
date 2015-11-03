@@ -57,8 +57,8 @@
                             <form class="dropdown-menu form-group-sm navbar-form martop" role="menu"
                                   aria-labelledby="dropdownMenu" ng-submit="userSearch(username, password)">
                                 <ul class="form-group nopadding">
-                                    <input class="input-sm form-control" required type="text" placeholder="User Name" ng-model="username"/>
-                                    <input class="input-sm form-control" required type="password" placeholder="Password" ng-model="password"/>
+                                    <input class="input-sm form-control" required="required" type="text" placeholder="User Name" ng-model="username"/>
+                                    <input class="input-sm form-control" required="required" type="password" placeholder="Password" ng-model="password"/>
                                     <button type="submit" class="btn btn-sm btn-primary form-control">Sign in</button>
                                 </ul>
                             </form>
@@ -79,7 +79,7 @@
 
     </nav>
 </aside>
-<div ng-view></div>
+<div ng-view="pageView"></div>
 <footer >
     <!--future place for javascript code to load the company information links-->
 </footer>
@@ -92,6 +92,6 @@
 <script type="text/javascript" src="../public/bootstrap/dist/js/bootstrap.min.js"
         th:src="@{/bootstrap/dist/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/js/app.js"
-        th:src="@{/js/loadcontent.js}"></script>
+        th:src="@{/js/app.js}"></script>
 </body>
 </html>
