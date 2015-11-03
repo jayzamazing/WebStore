@@ -5,3 +5,10 @@
 'use strict';
 
 var storeControllers = angular.module("storeControllers", []);
+storeControllers.controller('LoginCtrl',
+['$scope', '$location', 'Login', 'setCreds',
+    function LoginCtrl($scope, $location, setCreds){
+
+    }
+
+]);

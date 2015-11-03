@@ -9,44 +9,47 @@
     storeServices.factory('checkCreds',
         ['$cookies', function($cookies) {
         return function() {
-            if ($cookies.creds !== undefined && $cookies.creds != "")
-                return true;
-            else
-                return false;
+            var notEmpty = false;
+            var creds = $cookies.creds;
+            if (creds !== undefined && creds != "")
+                notEmpty = true;
+            return notEmpty;
         }
     }]);
 
     storeServices.factory('getToken',
         ['$cookies', function($cookies) {
             return function(){
-                if ($cookies.creds !== undefined && $cookies.creds != "")
-                   return btoa($cookies.checkCreds);
-                else
-                    return "";
+                var val = "";
+                var creds = $cookies.creds;
+                if (creds !== undefined && creds != "")
+                    val = btoa(creds);
+                return val;
             }
         }]);
 
     storeServices.factory('getUserName',
         ['$cookies', function($cookies) {
             return function(){
-                if ($cookies.userName !== undefined && $cookies.userName != "")
-                    return $cookies.UserName;
-                else
-                    return "";
+                var val = "";
+                var userName = $cookies.userName;
+                if (userName !== undefined && userName != "")
+                    val = userName;
+                return val;
             }
         }]);
 
     storeServices.factory('setCreds',
         ['$cookies', function($cookies) {
             return function(userName, password){
-                $cookies.creds = username.concat(":", password);
+                $cookies.creds = userName.concat(":", password);
                 $cookies.userName = userName;
             }
         }]);
 
     storeServices.factory('clearCreds',
         ['$cookies', function() {
-            return function(){
+            return function($cookies){
                 $cookies.creds = "";
                 $cookies.userName = "";
             }
