@@ -1,4 +1,4 @@
-package com.adrianjaylopez.webstore.controller;
+package com.adrianjaylopez.webstore.service;
 
 /**
  * @author Adrian J Lopez

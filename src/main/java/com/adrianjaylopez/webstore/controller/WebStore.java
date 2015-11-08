@@ -2,8 +2,9 @@ package com.adrianjaylopez.webstore.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -22,17 +23,34 @@ public class WebStore {
         return "index";
     }
 
-    @RequestMapping(value = "/userInfo")
-    public String admin(HttpServletResponse response) {
-        UserCredentials userType = new UserCredentials();
-        String type = userType.userType("admin", "admin");
-        Cookie foo = new Cookie("UserType", type);
-        foo.setMaxAge(1800);
-        response.addCookie(foo);
-        if (type == "admin")
-            return "admin";
-        else
-            return "blah";
+    @RequestMapping(value = "/main")
+    public String main(){
+        return "main";
     }
 
+    @RequestMapping(value = "/admin")
+    public String admin(){
+        return "admin";
+    }
+
+    @RequestMapping(value = "/userInfo", method = RequestMethod.POST)
+    public @ResponseBody userType admin(HttpServletResponse response) {
+        return new userType("admin");
+    }
+
+}
+
+/**
+ * Test object for front end authentication, going to replace with spring security later on.
+ */
+class userType{
+    String userType;
+    boolean authenticated = false;
+    userType(String userType){
+       this.userType = userType;
+        authenticated = true;
+    }
+
+    public String getUserType(){return userType;}
+    public boolean getAuthenticated(){return authenticated;}
 }
