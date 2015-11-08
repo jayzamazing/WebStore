@@ -50,18 +50,18 @@
                     <li>
                         <!--login button with drop down login form -->
                         <div class="dropdown">
-                            <a class="btn btn-primary dropdown-toggle navbar-btn btn-sm collapse in" href="#"
+                            <a class="btn btn-primary dropdown-toggle navbar-btn btn-sm collapse in"
                                data-toggle="dropdown">Login
                                 <span class="caret"></span></a>
 
-                            <form class="dropdown-menu form-group-sm navbar-form martop" role="menu"
-                                  aria-labelledby="dropdownMenu" ng-submit="userSearch(username, password)">
-                                <ul class="form-group nopadding">
-                                    <input class="input-sm form-control" required="required" type="text" placeholder="User Name" ng-model="username"/>
-                                    <input class="input-sm form-control" required="required" type="password" placeholder="Password" ng-model="password"/>
-                                    <button type="submit" class="btn btn-sm btn-primary form-control">Sign in</button>
-                                </ul>
-                            </form>
+                            <a class="dropdown-menu form-group-sm navbar-form martop" role="menu"
+                                  aria-labelledby="dropdownMenu">
+                                <form name="loginForm" ng-controller="LoginCtrl">
+                                    <input class="input-sm" type="text" name="username" required="true" placeholder="username" ng-model="username"/>
+                                    <input class="input-sm" type="password" name="password" required="true" placeholder="password" ng-model="password"/>
+                                    <button type="submit" ng-click="login()" name="submit" class="btn btn-sm btn-primary">Sign in</button>
+                                </form>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -89,9 +89,17 @@
         th:src="@{/angular/angular.min.js}"></script>
 <script type="text/javascript" src="../public/angular-route/angular-route.min.js"
         th:src="@{/angular-route/angular-route.min.js}"></script>
+<script type="text/javascript" src="../public/angular-resource/angular-resource.min.js"
+        th:src="@{/angular-resource/angular-resource.min.js}"></script>
+<script type="text/javascript" src="../public/angular-cookies/angular-cookies.min.js"
+        th:src="@{/angular-cookies/angular-cookies.min.js}"></script>
 <script type="text/javascript" src="../public/bootstrap/dist/js/bootstrap.min.js"
         th:src="@{/bootstrap/dist/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="../static/js/app.js"
         th:src="@{/js/app.js}"></script>
+<script type="text/javascript" src="../static/js/controllers.js"
+        th:src="@{/js/controllers.js}"></script>
+<script type="text/javascript" src="../static/js/services.js"
+        th:src="@{/js/services.js}"></script>
 </body>
 </html>

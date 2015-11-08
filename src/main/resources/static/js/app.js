@@ -2,21 +2,25 @@
  * Created by Adrian J Lopez on 9/22/15.
  */
 
+
 'use strict';
 
-(function () {
-    var storeApp = angular.module('pageView', ['ngRoute', 'storeServices']);
 
-    storeApp.config(function($routeProvider){
+var pageView;
+pageView = angular.module('pageView', ['ngRoute', 'storeControllers', 'storeServices']);
+    pageView.config(['$routeProvider', '$locationProvider',
+        function($routeProvider, $locationProvider){
         $routeProvider
-            .when("/", {
-                templateUrl: "main.html",
-                controller: "MainController"
+            .when('/index', {
+                templateUrl: 'main.html',
+                controller: 'LoginCtrl'
             })
-            .when("/admin", {
-                templateUrl: "admin.html",
-                controller: "AdminController"
+            .when('/admin', {
+                templateUrl: 'admin.html'
+                //controller: 'AdminController'
             })
-            .otherwise({redirectTo:"/"});
-    });
-})();
+            .otherwise({redirectTo:'/index'});
+
+            $locationProvider.html5Mode(false).hashPrefix("!");
+    }]);
+

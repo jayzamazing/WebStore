@@ -4,8 +4,8 @@
 
 'use strict';
 
-(function () {
-    var storeServices = angular.module('storeServices', ['ngCookies']);
+
+    var storeServices = angular.module('storeServices', ['ngCookies', 'ngResource']);
     storeServices.factory('checkCreds',
         ['$cookies', function($cookies) {
         return function() {
@@ -39,26 +39,40 @@
             }
         }]);
 
+    storeServices.factory('getUserType',
+        ['$cookies', function($cookies) {
+            return function(){
+                var val = "";
+                var userType = $cookies.userType;
+                if (userType !== undefined && userType != "")
+                    val = userType;
+                return val;
+            }
+        }]);
+
     storeServices.factory('setCreds',
         ['$cookies', function($cookies) {
-            return function(userName, password){
+            return function(userName, password, userType){
                 $cookies.creds = userName.concat(":", password);
                 $cookies.userName = userName;
+                $cookies.userType = userType;
             }
         }]);
 
     storeServices.factory('clearCreds',
-        ['$cookies', function() {
-            return function($cookies){
+        ['$cookies', function($cookies) {
+            return function(){
                 $cookies.creds = "";
                 $cookies.userName = "";
+                $cookies.userType = "";
             }
         }]);
 
     storeServices.factory('Login', ['$resource',
-        function($resource){
-          return $resource('http://localhost:8080/userInfo',{},{
-              login: {method: 'POST', cache: false, isArray: false}
+        function(rs){
+          return rs('http://localhost:8080/userInfo',{},{
+              auth: {method: 'POST', cache: false, isArray: false}
           });
         }]);
-})();
+
+
