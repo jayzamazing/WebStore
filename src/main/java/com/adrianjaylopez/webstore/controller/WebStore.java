@@ -43,7 +43,8 @@ public class WebStore {
     public @ResponseBody User userInfo(@RequestBody User user) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         token = (UsernamePasswordAuthenticationToken) authProvider.authenticate(token);
-        user.setUserAuth(token.getAuthorities().toString());
+
+        user = (User) token.getPrincipal();
 
         return user;
 
