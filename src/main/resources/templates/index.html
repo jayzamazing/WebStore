@@ -4,7 +4,6 @@
     <meta charset="UTF-8"/>
     <title>WebStore</title>
     <meta name="author" content="Adrian J Lopez"/>
-    <meta name="version" content="1.4"/>
     <meta name="since" content="Jun 14, 2015"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="../public/bootstrap/dist/css/bootstrap.min.css"
@@ -32,7 +31,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <!-- add nav -->
                 <ul class="nav navbar-nav">
-                  <li></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">blah1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">awesome</a> </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">blah3</a></li>
+                    <li><a href="#">blah4</a></li>
                 </ul>
 
 
@@ -72,13 +79,6 @@
         <!--future place for javascript to name the page-->
     </div>
 </header>
-<aside class="col-lg-2 col-md-2 container">
-    <nav class="nav navbar" >
-        <!--future place for javascript code to load nav bar items -->
-
-
-    </nav>
-</aside>
 <div ng-view="pageView"></div>
 <footer >
     <!--future place for javascript code to load the company information links-->

@@ -43,8 +43,8 @@
         ['$cookies', function($cookies) {
             return function(){
                 var val = "";
-                var userType = $cookies.userType;
-                if (userType !== undefined && userType != "")
+                var userAuth = $cookies.userType;
+                if (userAuth !== undefined && userAuth != "")
                     val = userType;
                 return val;
             }
@@ -55,7 +55,7 @@
             return function(userName, password, userType){
                 $cookies.creds = userName.concat(":", password);
                 $cookies.userName = userName;
-                $cookies.userType = userType;
+                $cookies.userAuth = userType;
             }
         }]);
 
@@ -64,7 +64,7 @@
             return function(){
                 $cookies.creds = "";
                 $cookies.userName = "";
-                $cookies.userType = "";
+                $cookies.userAuth = "";
             }
         }]);
 
