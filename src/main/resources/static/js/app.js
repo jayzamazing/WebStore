@@ -21,6 +21,6 @@ pageView = angular.module('pageView', ['ngRoute', 'storeControllers', 'storeServ
             })
             .otherwise({redirectTo:'/index'});
 
-            $locationProvider.html5Mode(false).hashPrefix("!");
+            $locationProvider.html5Mode(true);
     }]);
 
