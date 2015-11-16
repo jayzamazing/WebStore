@@ -29,7 +29,7 @@ public class WebStoreApplication {
     public CommandLineRunner demo(UserRepository repo){
         log.info("blah");
         return (args) -> {
-            repo.save(new User("superman", "kablah", "ROLE_ADMIN"));
+            repo.save(new User("superman", "kablah", 1));
 
             User user = repo.findByUsername("superman");
                 log.info(user.toString());

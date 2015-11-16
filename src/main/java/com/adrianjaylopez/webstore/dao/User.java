@@ -28,12 +28,12 @@ public class User {
     private String password;
 
     @Column(name = "USER_AUTHORIZATION")
-    private String userAuth;
+    private int userAuth;
 
     public User() {
     }
 
-    public User(String username, String password, String userAuth) {
+    public User(String username, String password, int userAuth) {
         this.username = username;
         this.password = password;
         this.userAuth = userAuth;
@@ -55,11 +55,11 @@ public class User {
         this.password = password;
     }
 
-    public String getUserAuth() {
+    public int getUserAuth() {
         return userAuth;
     }
 
-    public void setUserAuth(String userAuth) {
+    public void setUserAuth(int userAuth) {
         this.userAuth = userAuth;
     }
 

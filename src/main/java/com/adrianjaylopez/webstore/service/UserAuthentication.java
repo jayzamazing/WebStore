@@ -41,8 +41,8 @@ public class UserAuthentication implements AuthenticationProvider {
             throw new BadCredentialsException("Invalid username/password");
         }
         List<GrantedAuthority> auth;
-        String userAuth = user.getUserAuth();
-        if (userAuth.compareTo("ROLE_ADMIN") == 0)
+        int userAuth = user.getUserAuth();
+        if (userAuth == 1)
             auth = AuthorityUtils.createAuthorityList("ROLE_ADMIN");
         else
             auth = AuthorityUtils.createAuthorityList("ROLE_USER");

@@ -17,11 +17,11 @@ storeControllers.controller('LoginCtrl',
             };
             Login.auth({}, postData,
             function success(response){
-                if(response.userAuth == "[ROLE_ADMIN]"){
+                if(response.userAuth == "1"){
                     setCreds(sc.username, sc.password, response.userAuth);
                     lc.path('/admin');
                 }
-                else if (response.userType == "[ROLE_USER]"){
+                else if (response.userType == "0"){
                     setCreds(sc.username, sc.password, response.userAuth);
                     lc.path('/');
                 } else {
