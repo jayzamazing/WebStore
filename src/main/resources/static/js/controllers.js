@@ -17,12 +17,12 @@ storeControllers.controller('LoginCtrl',
             };
             Login.auth({}, postData,
             function success(response){
-                if(response.authenticated && response.userType == "admin"){
-                    setCreds(sc.username, sc.password, sc.userType);
+                if(response.userAuth == "[ROLE_ADMIN]"){
+                    setCreds(sc.username, sc.password, response.userAuth);
                     lc.path('/admin');
                 }
-                else if (response.authenticated && response.userType == "user"){
-                    setCreds(sc.username, sc.password, sc.userType);
+                else if (response.userType == "[ROLE_USER]"){
+                    setCreds(sc.username, sc.password, response.userAuth);
                     lc.path('/');
                 } else {
                     sc.error = "Login Failed"

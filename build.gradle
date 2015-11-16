@@ -19,7 +19,7 @@ apply plugin: 'io.spring.dependency-management'
 
 jar {
     baseName = 'webstore'
-    version = '0.0.6'
+    version = '0.0.7'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -32,7 +32,9 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-web")
-    //compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
     testCompile("org.springframework.boot:spring-boot-starter-test") 
 }
 
