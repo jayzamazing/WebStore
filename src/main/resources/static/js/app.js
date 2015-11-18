@@ -14,6 +14,7 @@ pageView = angular.module('pageView', ['ngRoute', 'storeControllers', 'storeServ
             .when('/index', {
                 templateUrl: 'main.html',
                 controller: 'LoginCtrl'
+
             })
             .when('/admin', {
                 templateUrl: 'admin.html'
@@ -21,6 +22,9 @@ pageView = angular.module('pageView', ['ngRoute', 'storeControllers', 'storeServ
             })
             .otherwise({redirectTo:'/index'});
 
-            $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode({enabled:true, requireBase:false});
     }]);
+pageView.run(function (sendHead){
+    sendHead.init();
+});
 

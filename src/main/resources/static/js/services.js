@@ -75,4 +75,12 @@
           });
         }]);
 
+    storeServices.factory('sendHead', function ($http){
+        return{
+            init: function () {
+                $http.defaults.headers.common.Authorization = "hs5533frehjlopop[]56";
+            }
+        }
+    });
+
 
