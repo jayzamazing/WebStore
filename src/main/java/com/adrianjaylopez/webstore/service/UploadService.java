@@ -1,5 +1,8 @@
 package com.adrianjaylopez.webstore.service;
 
+import com.adrianjaylopez.webstore.dao.Image;
+import com.adrianjaylopez.webstore.dao.ImageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,17 +19,23 @@ import java.io.IOException;
 @Service
 public class UploadService {
 
-    public String imageUpload(String name, MultipartFile file){
-        if(!file.isEmpty()){
-            try {
-                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(name)));
-                stream.write(file.getBytes());
-                stream.close();
-            } catch (IOException ex) {
-                return "Failed to upload due to: " + ex.getMessage();
-            }
+    @Autowired
+    ImageRepository imageRepository;
 
-        }
-        return "Failed to upload file";
+    /**
+     * gets the image file
+     * @param filename name of file
+     * @return image file
+     */
+    public Image findByFilename(String filename){
+        return imageRepository.findByFilename(filename);
+    }
+
+    /**
+     * uploads the image file
+     * @param img file to upload
+     */
+    public void uploadImage(Image img){
+        imageRepository.saveAndFlush(img);
     }
 }

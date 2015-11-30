@@ -2,6 +2,7 @@ package com.adrianjaylopez.webstore.controller;
 
 import com.adrianjaylopez.webstore.dao.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,7 @@ public class WebStore {
             return "index";
     }
 
+    @PreAuthorize("hasRole('[ROLE_ADMIN]')")
     @RequestMapping(value = "/admin")
     public String admin(){ return "admin"; }
 

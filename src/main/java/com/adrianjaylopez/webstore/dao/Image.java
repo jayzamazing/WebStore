@@ -1,13 +1,10 @@
 package com.adrianjaylopez.webstore.dao;
 
 import org.springframework.web.multipart.MultipartFile;
-/*
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
- */
+
 
 /**
  * Image Class
@@ -18,23 +15,54 @@ import javax.validation.constraints.NotNull;
  * @since <pre>6/6/15</pre>
  * @version 1.3
  */
-//@Entity
+@Entity
+@Table(name = "Images")
 public class Image {
 
     //declare variables
-    //@Id @GeneratedValue
+    @Id @GeneratedValue
+    @Column
     private Long id;
 
-    //@NotNull
-    private String itemNumber;
+    @NotNull
     private String fileName;
+
+    @NotNull
     private int viewOrder;
-    private MultipartFile file;
+
+    @NotNull
+    @Lob
+    private byte[] file;
+
+    @NotNull
+    private String mimeType;
 
     /**
      * no-arg constructor
      */
     public Image(){}
+
+    public Image(String filename, byte[] file, String mimeType){
+        this.fileName = filename;
+        this.file = file;
+        this.mimeType = mimeType;
+    }
+
+    /**
+     * get auto generated id
+     * @return id number
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * set auto generated id
+     * @param id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * Gets the order number for the image
@@ -53,22 +81,6 @@ public class Image {
     }
 
     /**
-     * Gets the item number that the image is associated with
-     * @return item number
-     */
-    public String getItemNumber() {
-        return itemNumber;
-    }
-
-    /**
-     * Sets the item number this image is associated with
-     * @param itemNumber item number
-     */
-    public void setItemNumber(String itemNumber) {
-        this.itemNumber = itemNumber;
-    }
-
-    /**
      * Gets the file name for this image
      * @return file name
      */
@@ -84,21 +96,35 @@ public class Image {
     }
 
     /**
-     * Gets the picture file. Not persisted.
+     * Gets the picture file.
      * @return file
      */
-    //@Transient
-    public MultipartFile getFile() {
+    public byte[] getFile() {
         return file;
     }
 
     /**
-     * Sets the picture file. Not persisted
+     * Sets the picture file.
      * @param file picture
      */
-    //@Transient
-    public void setFile(MultipartFile file) {
+    public void setFile(byte[] file) {
         this.file = file;
+    }
+
+    /**
+     * gets the mime type of the image
+     * @return mime type
+     */
+    public String getMimeType() {
+        return mimeType;
+    }
+
+    /**
+     * sets the mime type for the file
+     * @param mimeType
+     */
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
     }
 
     /**
@@ -108,14 +134,10 @@ public class Image {
     @Override
     public String toString() {
         return "Image{" +
-                "itemNumber='" + itemNumber + '\'' +
+                "id=" + id +
+                ", fileName='" + fileName + '\'' +
                 ", viewOrder=" + viewOrder +
-                ", fileName=" + fileName +
+                ", mimeType=" + mimeType +
                 '}';
     }
-
-
-
-
-
 }
