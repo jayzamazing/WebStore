@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @since <pre>6/22/15</pre>
  * @version 1.1
  */
-@Controller
+@RestController
 public class UploadController {
 
     @Autowired
@@ -32,6 +33,6 @@ public class UploadController {
     public String fileUpload(@RequestParam("name") String name, @RequestParam("itemNumber") String item,
                              @RequestParam("file") MultipartFile file){
 
-        return uploadService.imageUpload(name, file);
+        return null;//TODO complete when fully implemented
     }
 }
