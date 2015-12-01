@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author Adrian J Lopez
- * @version 1.0
+ * @version 1.1
  * @since <pre>11/12/15</pre>
  */
 @Component

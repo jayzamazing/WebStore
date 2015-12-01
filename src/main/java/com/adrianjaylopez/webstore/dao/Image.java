@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  * item that the image corresponds to, and the order that the images should be displayed in.
  * @author Adrian J Lopez
  * @since <pre>6/6/15</pre>
- * @version 1.3
+ * @version 1.4
  */
 @Entity
 @Table(name = "Images")
