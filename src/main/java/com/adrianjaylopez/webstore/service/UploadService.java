@@ -4,15 +4,9 @@ import com.adrianjaylopez.webstore.dao.Image;
 import com.adrianjaylopez.webstore.dao.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
- * @version 1.0
+ * @version 1.1
  * @author Adrian J Lopez
  * @since <pre>6/26/15</pre>
  */

@@ -1,10 +1,6 @@
 package com.adrianjaylopez.webstore.controller;
 
-import com.adrianjaylopez.webstore.dao.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,14 +9,11 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author Adrian J Lopez
  * @since <pre>6/14/15</pre>
- * @version 1.3
+ * @version 1.4
  */
 
 @Controller
 public class WebStore {
-
-    @Autowired
-    private AuthenticationProvider authProvider;
 
     @RequestMapping(value = "/")
     public String index(){
@@ -42,14 +35,6 @@ public class WebStore {
     @RequestMapping(value = "/admin")
     public String admin(){ return "admin"; }
 
-    @RequestMapping(value = "/userInfo", method = RequestMethod.POST)
-    public @ResponseBody User userInfo(@RequestBody User user) {
-            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
-            token = (UsernamePasswordAuthenticationToken) authProvider.authenticate(token);
-            user = (User) token.getPrincipal();
 
-        return user;
-
-    }
 
 }
