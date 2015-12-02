@@ -78,7 +78,7 @@ node_modules
 # .idea/sqlDataSources.xml
 # .idea/dynamic.xml
 # .idea/uiDesigner.xml
-application.properties
+
 
 # Gradle:
 # .idea/gradle.xml
@@ -92,6 +92,7 @@ application.properties
 *.iws
 
 ## Plugin-specific files:
+/src/main/resources/application.properties
 
 # IntelliJ
 /out/
