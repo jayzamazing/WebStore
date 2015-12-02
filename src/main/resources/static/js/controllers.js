@@ -27,6 +27,7 @@ storeControllers.controller('LoginCtrl',
                 } else {
                     sc.error = "Login Failed"
                 }
+                postData = null;
             },
                 function error(errorMessage) {
                     console.log("Error:" + JSON.stringify(errorMessage));

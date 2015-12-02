@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public interface ImageRepository extends JpaRepository<Image, Long> {
+    //used to search for associated file
     Image findByFilename(String filename);
 
 }
