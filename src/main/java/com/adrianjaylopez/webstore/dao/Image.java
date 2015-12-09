@@ -1,7 +1,5 @@
 package com.adrianjaylopez.webstore.dao;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -13,7 +11,7 @@ import javax.validation.constraints.NotNull;
  * item that the image corresponds to, and the order that the images should be displayed in.
  * @author Adrian J Lopez
  * @since <pre>6/6/15</pre>
- * @version 1.4
+ * @version 2.0
  */
 @Entity
 @Table(name = "Images")
@@ -25,7 +23,7 @@ public class Image {
     private Long id;
 
     @NotNull
-    private String fileName;
+    private String filename;
 
     @NotNull
     private int viewOrder;
@@ -42,10 +40,11 @@ public class Image {
      */
     public Image(){}
 
-    public Image(String filename, byte[] file, String mimeType){
-        this.fileName = filename;
+    public Image(String filename, byte[] file, String mimeType, int viewOrder){
+        this.filename = filename;
         this.file = file;
         this.mimeType = mimeType;
+        this.viewOrder = viewOrder;
     }
 
     /**
@@ -84,15 +83,15 @@ public class Image {
      * Gets the file name for this image
      * @return file name
      */
-    public String getFileName() {
-        return fileName;
+    public String getFilename() {
+        return filename;
     }
 
     /**
      * Sets the file name of this image using the item number and the view order.
      */
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
     /**
@@ -135,7 +134,7 @@ public class Image {
     public String toString() {
         return "Image{" +
                 "id=" + id +
-                ", fileName='" + fileName + '\'' +
+                ", filename='" + filename + '\'' +
                 ", viewOrder=" + viewOrder +
                 ", mimeType=" + mimeType +
                 '}';

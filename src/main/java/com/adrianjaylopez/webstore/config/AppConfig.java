@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -14,17 +16,18 @@ import java.util.Properties;
 /**
  *
  * @author Adrian J Lopez
- * @version 1.0
+ * @version 1.1
  * @since <pre>11/30/15</pre>
  */
 @Configuration
+@EnableTransactionManagement
 public class AppConfig {
 
-    @Value("$database.url")
+    @Value("${database.url}")
     private String dtbUrl;
-    @Value("$database.username")
+    @Value("${database.username}")
     private String dtbUsername;
-    @Value("$database.password")
+    @Value("${database.password}")
     private String dtbPassword;
 
 
@@ -49,13 +52,14 @@ public class AppConfig {
      * @return entitymanagerfactorybean
      */
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setPackagesToScan("webstore.entity");
+        entityManagerFactoryBean.setPackagesToScan("com.adrianjaylopez.webstore.dao");
         entityManagerFactoryBean.setPersistenceProvider(new HibernatePersistenceProvider());
         Properties prop = new Properties();
         prop.setProperty("hibernate.hbm2ddl.auto", "update");
         prop.setProperty("hibernate.show_sql", "true");
+        prop.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         entityManagerFactoryBean.setJpaProperties(prop);
         entityManagerFactoryBean.setDataSource(dataSource);
         return entityManagerFactoryBean;
