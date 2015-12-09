@@ -17,8 +17,8 @@ import static org.junit.Assert.*;
 /**
  * Image Tester.
  * This class is to run tests on the item class.
- * @version 1.1
- * @Author Adrian J Lopez
+ * @version 2.0
+ * @author Adrian J Lopez
  * @since <pre>6/25/15</pre>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -62,33 +62,13 @@ public class ImageTest {
     }
 
     /**
-     * Tests getitemnumber method.
-     * @throws Exception
-     */
-    @Test
-    public void testGetItemNumber() throws Exception {
-        reflectionSetHelper("itemNumber", "A43281-9", image);//setter
-        assertEquals(image.getItemNumber(), "A43281-9");//check this method produced expected results
-    }
-
-    /**
-     * Tests setitenumber method.
-     * @throws Exception
-     */
-    @Test
-    public void testSetItemNumber() throws Exception {
-        image.setItemNumber("A43281-9");//setter
-        assertEquals(reflectionGetHelper("itemNumber", image), "A43281-9");//check this method produced expected results
-    }
-
-    /**
      * Tests getfilename method.
      * @throws Exception
      */
     @Test
     public void testGetFileName() throws Exception {
         reflectionSetHelper("fileName", "superblah", image);//setter
-        assertEquals(image.getFileName(), "superblah");//check this method produced expected results
+        assertEquals(image.getFilename(), "superblah");//check this method produced expected results
     }
 
     /**
@@ -97,7 +77,7 @@ public class ImageTest {
      */
     @Test
     public void testSetFileName() throws Exception {
-        image.setFileName("super mario bros");//setter
+        image.setFilename("super mario bros");//setter
         assertEquals(reflectionGetHelper("fileName", image), "super mario bros");//check this method produced expected results
     }
 
@@ -123,7 +103,7 @@ public class ImageTest {
         File file = new File("/Users/jay/Pictures/family pic.jpg");//create file object of an image
         MultipartFile mFile = new MockMultipartFile(file.getName(), Files.newInputStream(file.toPath(),
                 StandardOpenOption.READ));//create multipart file and pass file to it
-        image.setFile(mFile);
+        image.setFile(mFile.getBytes());
         assertEquals(reflectionGetHelper("file", image), mFile);//check this method produced expected results
     }
 
