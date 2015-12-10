@@ -8,9 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
  * This is the entry point for Spring Boot. 
  * @author Adrian J Lopez
  * @since <pre>6/13/15</pre>
- * @version 2.0
+ * @version 2.1
  */
-@ComponentScan("com.adrianjaylopez.webstore")
 @SpringBootApplication
 public class WebStoreApplication {
 

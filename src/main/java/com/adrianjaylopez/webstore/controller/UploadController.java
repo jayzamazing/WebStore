@@ -16,7 +16,7 @@ import java.util.Iterator;
  * This class is going to deal with uploading the images that will be used for the items pictures.
  * @author Adrian J Lopez
  * @since <pre>6/22/15</pre>
- * @version 1.4
+ * @version 1.5
  */
 @Controller
 public class UploadController {
@@ -33,11 +33,11 @@ public class UploadController {
     public String fileUpload(MultipartHttpServletRequest request){
         try {
             //iterate over the request and grab the image names
-            for(Iterator<String> fileName = request.getFileNames(); request.getFileNames().hasNext();){
+            for(Iterator<String> fileName = request.getFileNames(); fileName.hasNext();){
                 //get the file using the image name and set it to this file
                 MultipartFile file = request.getFile(fileName.next());
                 //create image object
-                Image image = image = new Image(file.getOriginalFilename(), file.getBytes(), file.getContentType(),
+                Image image = new Image(file.getOriginalFilename(), file.getBytes(), file.getContentType(),
                         Integer.parseInt(request.getParameter("viewOrder")));
                 //pass in image to upload service for storage
                 uploadService.uploadImage(image);
