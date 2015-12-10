@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
+import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,16 +25,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 * 
 * @author Adrian J Lopez
 * @since <pre>6/22/15</pre>
-* @version 1.1
+* @version 2.0
 */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@ContextConfiguration(classes = {AppConfig.class}, loader = SpringApplicationContextLoader.class)
 @WebAppConfiguration
 public class UploadControllerTest {
 
     private MockMvc mockMvc;
     private MockMultipartFile mockFile;
-    private MediaType mediaType;
     @Resource
     private WebApplicationContext webApplicationContext;
     @InjectMocks
@@ -46,8 +45,7 @@ public void before() throws Exception {
     this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).dispatchOptions(true)
             .build();
     mockFile = new MockMultipartFile("image", "blahimage", "text/plain", "ewr43rewr34wrqfffsad".getBytes());
-    mediaType = new MediaType("multipart", "form-data");
-} 
+}
 
 @After
 public void after() throws Exception {

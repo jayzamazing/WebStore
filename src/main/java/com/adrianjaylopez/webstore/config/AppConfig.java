@@ -4,6 +4,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -16,11 +17,12 @@ import java.util.Properties;
 /**
  *
  * @author Adrian J Lopez
- * @version 1.1
+ * @version 1.2
  * @since <pre>11/30/15</pre>
  */
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("com.adrianjaylopez.webstore")
 public class AppConfig {
 
     @Value("${database.url}")
