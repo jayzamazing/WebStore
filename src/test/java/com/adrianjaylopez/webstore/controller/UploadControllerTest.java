@@ -21,8 +21,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 
 /**
-* UploadController Tester. 
-* 
+* UploadController Tester, uses Mock to create a fake item for upload. This test not only deals with
+* uploading but also the storage of the image in the database.
 * @author Adrian J Lopez
 * @since <pre>6/22/15</pre>
 * @version 2.0
@@ -32,6 +32,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @WebAppConfiguration
 public class UploadControllerTest {
 
+    //declarations
     private MockMvc mockMvc;
     private MockMultipartFile mockFile;
     @Resource
@@ -39,7 +40,11 @@ public class UploadControllerTest {
     @InjectMocks
     private UploadController uploadController;
 
-@Before
+    /**
+     * Initial setup, deals with initializing the objects needed for this test.
+     * @throws Exception
+     */
+    @Before
 public void before() throws Exception {
     MockitoAnnotations.initMocks(this);
     this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).dispatchOptions(true)

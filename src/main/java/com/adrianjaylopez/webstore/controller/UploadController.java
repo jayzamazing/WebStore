@@ -3,12 +3,11 @@ package com.adrianjaylopez.webstore.controller;
 import com.adrianjaylopez.webstore.dao.Image;
 import com.adrianjaylopez.webstore.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -16,9 +15,9 @@ import java.util.Iterator;
  * This class is going to deal with uploading the images that will be used for the items pictures.
  * @author Adrian J Lopez
  * @since <pre>6/22/15</pre>
- * @version 1.5
+ * @version 2.0
  */
-@Controller
+@RestController
 public class UploadController {
 
     @Autowired
