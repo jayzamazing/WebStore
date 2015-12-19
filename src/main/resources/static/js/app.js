@@ -2,9 +2,7 @@
  * Created by Adrian J Lopez on 9/22/15.
  */
 
-
 'use strict';
-
 
 var pageView;
 pageView = angular.module('pageView', ['ngRoute', 'storeControllers', 'storeServices']);
@@ -27,4 +25,20 @@ pageView = angular.module('pageView', ['ngRoute', 'storeControllers', 'storeServ
 pageView.run(function (sendHead){
     sendHead.init();
 });
+pageView.directive('dropzone', function () {
+    return function (scope, element, attrs) {
+        var config, dropzone;
+
+        config = scope[attrs.dropzone];
+
+        dropzone = new Dropzone(element[0], config.options);
+
+        angular.forEach(config.eventHandlers, function (handler, event) {
+            dropzone.on(event, handler);
+        });
+    };
+});
+
+
+
 

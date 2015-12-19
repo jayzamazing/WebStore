@@ -1,17 +1,25 @@
-<main class="col-lg-8 col-md-8 container col-lg-offset-4 col-md-offset-4">
-    <div>
+<main class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2" ng-init="initDropZone()">
+
+    <div class="col-lg-8 col-md-8 nopadding">
         <!--search form-->
         <form class="form-group-sm" role="search">
-            <div class="col-lg-5 col-md-3">
-                <input type="text" class="input-sm form-control" id="itemSearch" placeholder="Search for Item"/>
+            <div class="col-lg-9 col-md-9">
+                <input type="text" class="input-lg form-control" id="itemSearch" placeholder="Search for Item"/>
             </div>
-            <div class="col-lg-1 col-md-1">
+            <div class="col-lg-2 col-md-2">
                 <button class="btn btn-primary form-control" type="button"><span
                         class="glyphicon glyphicon-search"></span></button>
             </div>
         </form>
     </div>
-    <div class="">
-
+    <div class="col-lg-12 col-md-12">
+        <div class="well" ng-app="app" ng-controller="DropzoneCtrl">
+            <form action="/upload" class="dropzone" id="dropzone" dropzone="dropzoneConfig">
+                <div class="dz-default dz-message">
+                    Drag and Drop image to upload or click in this area.
+                </div>
+            </form>
+        </div>
     </div>
 </main>
+<script type="text/javascript">Dropzone.autoDiscover = false;</script>
