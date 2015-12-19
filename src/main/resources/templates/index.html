@@ -10,6 +10,10 @@
           th:href="@{/bootstrap/dist/css/bootstrap.min.css}"/>
     <link rel="stylesheet" href="../public/bootstrap/dist/css/bootstrap-theme.min.css"
           th:href="@{/bootstrap/dist/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" href="../public/dropzone/dist/basic.css"
+          th:href="@{/dropzone/dist/basic.css}"/>
+    <link rel="stylesheet" href="../public/dropzone/dist/dropzone.css"
+          th:href="@{/dropzone/dist/dropzone.css}"/>
     <link rel="stylesheet" href="../static/css/site.css" th:href="@{/css/site.css}"/>
 </head>
 <body ng-app="pageView">
@@ -83,6 +87,8 @@
 <footer >
     <!--future place for javascript code to load the company information links-->
 </footer>
+<script type="text/javascript" src="../public/dropzone/dist/dropzone.js"
+        th:src="@{/dropzone/dist/dropzone.js}"></script>
 <script type="text/javascript" src="../public/jquery/dist/jquery.min.js"
         th:src="@{/jquery/dist/jquery.min.js}"></script>
 <script type="text/javascript" src="../public/angular/angular.min.js"

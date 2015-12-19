@@ -33,5 +33,22 @@ storeControllers.controller('LoginCtrl',
                     console.log("Error:" + JSON.stringify(errorMessage));
                 }
             );
+        };
+    }
+]).controller('DropzoneCtrl', function ($scope) {
+    $scope.dropzoneConfig = {
+        'options': {
+            'url': 'upload.php'
+        },
+        'eventHandlers': {
+            'sending': function (file, xhr, formData) {
+            },
+            'success': function (file, response) {
+            }
         }
-    }]);
+    };
+});
+
+
+
+
