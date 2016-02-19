@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -70,7 +69,7 @@ public class AppConfig {
     /**
      * Method to create transation manager to store and retrieve data between the entity and database.
      * @param entityManagerFactory intermediary
-     * @return transation manager
+     * @return transaction manager
      */
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){

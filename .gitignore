@@ -93,6 +93,8 @@ node_modules
 
 ## Plugin-specific files:
 /src/main/resources/application.properties
+/src/main/resources/hibernate.properties
+
 
 # IntelliJ
 /out/
