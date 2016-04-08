@@ -31,3 +31,9 @@ List of technologies used:
     </li>
   </ul>
 </p>
+<div>
+    <img src="github pictures/screenshot1.jpg">
+    <img src="github pictures/screenshot2.jpg">
+    <img src="github pictures/screenshot3.jpg">
+
+</div>
